@@ -86,6 +86,7 @@ def convert_parsed(zeppelin_note):
             cell['cell_type'] = 'code'
             cell['execution_count'] = index
             cell['metadata'] = {}
+            cell['outputs'] = []
             cell['source'] = '%' + code # add % to convert to cell magic
         elif UNKNOWN_MAGIC.match(code):
             # use raw cells for unknown magic
@@ -96,6 +97,7 @@ def convert_parsed(zeppelin_note):
             cell['cell_type'] = 'code'
             cell['execution_count'] = index
             cell['metadata'] = {'autoscroll': 'auto'}
+            cell['outputs'] = []
             cell['source'] = code
 
         cells.append(cell)
